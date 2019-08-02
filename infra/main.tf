@@ -3,14 +3,14 @@ terraform {
 }
 
 module "backend" {
-  source = "./modules/backend"
+  source = "modules/backend"
   environment = var.environment
   gcp_region = var.gcp_region
   gcp_cluster_name = var.gcp_cluster_name
 }
 
 module "cloudsql" {
-  source = "./modules/cloudsql"
+  source = "modules/cloudsql"
   gcp_region = var.gcp_region
   gcp_cloudsql_db_charset = var.gcp_cloudsql_db_charset
   gcp_cloudsql_db_collation = var.gcp_cloudsql_db_collation
@@ -28,14 +28,14 @@ module "cloudsql" {
 }
 
 module "gke" {
-  source = "./modules/gke"
+  source = "modules/gke"
   environment = var.environment
   gcp_region = var.gcp_region
   gcp_cluster_name = var.gcp_cluster_name
 }
 
 module "helm" {
-  source = "./modules/helm"
+  source = "modules/helm"
   environment = var.environment
   gcp_cluster_name = var.gcp_cluster_name
 }
